@@ -51,7 +51,7 @@ class CreateTenant extends Command
         $this->info('Connecting in tenant database');
         TenantConnector::connect($tenant);
         $this->info('Starting migrations');
-        $this->call('migrate', ['--database' => 'tenant']);
+        $this->call('migrate', ['--database' => 'tenant' , '--path' => '/database/migrations/tenant']);
         $this->info('Creating tenant company');
         $this->createCompany($tenant);
 

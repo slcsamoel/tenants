@@ -44,7 +44,7 @@ class MigrateTenant extends Command
             $this->comment("\n" . $tenant->name);
             try {
                 TenantConnector::connect($tenant);
-                $this->call($this->getMigrateCommand(), ['--database' => 'tenant']);
+                $this->call($this->getMigrateCommand(), ['--database' => 'tenant' , '--path' => '/database/migrations/tenant']);
             } catch (\Exception $e) {
                 $this->error($e->getMessage());
             }
