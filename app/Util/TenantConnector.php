@@ -21,6 +21,7 @@ class TenantConnector
         $config['password'] = Crypt::decrypt($tenant->password);
 
         Config::set("database.connections.tenant", $config);
+        Config::set("auth.providers.users_tenant");
     }
 
 }
